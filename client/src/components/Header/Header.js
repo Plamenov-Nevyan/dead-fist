@@ -7,8 +7,8 @@ export function Header(){
 
     return(
         <header className={styles['site-header']}>
-            <div className="header-bg">
-                <img src={headerBg} />
+            <div className={styles["header-bg"]}>
+                <img src={headerBg} className={styles["header-bg-img"]}/>
             </div>
             <div className={styles['logo-container']}>
                 <img src={logoImg} className={styles.logo}/>

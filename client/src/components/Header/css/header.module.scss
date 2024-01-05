@@ -1,7 +1,8 @@
 .site-header {
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
-    height: 15vh;
+    max-height: 24vh;
+    height: 24vh;
     display: flex;
     padding: .6rem;
     position: relative;
@@ -11,10 +12,16 @@
         right: 0;
         height: 100%;
         flex: 0;
+        .header-bg-img {
+            width: 100%;
+            height: auto;
+        }
     }
     .logo-container {
         flex: 0 1 10%;
         height: 100%;
+        display: flex;
+        align-items: center;
         .logo {
             width: 100%;
             height: auto;
