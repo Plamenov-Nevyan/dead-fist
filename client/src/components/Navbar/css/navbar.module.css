@@ -1,0 +1,29 @@
+.main-nav {
+  flex: 0 1 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-nav .nav-links {
+  display: flex;
+  list-style-type: none;
+  gap: 2rem;
+}
+.main-nav .nav-links .nav-link {
+  color: white;
+  transition: ease-in-out 200ms;
+  cursor: pointer;
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+.main-nav .nav-links .active-link {
+  background-color: white;
+  color: black;
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+.main-nav .nav-links .nav-link:hover {
+  background-color: rgb(190, 189, 189);
+  color: black;
+}/*# sourceMappingURL=navbar.module.css.map */

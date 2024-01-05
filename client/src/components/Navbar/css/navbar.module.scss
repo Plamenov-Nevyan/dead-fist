@@ -1,0 +1,30 @@
+
+.main-nav {
+    flex: 0 1 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav-links {
+        display: flex;
+        list-style-type: none;
+        gap: 2rem;
+        .nav-link {
+            color: white;
+            transition: ease-in-out 200ms;
+            cursor: pointer;
+            padding: 0.2em;
+            border-radius: 0.3em;
+        }
+        .active-link{
+            background-color: white;
+            color: black;
+            padding: 0.2em;
+            border-radius: 0.3em;
+        }
+        .nav-link:hover {
+            background-color: rgb(190, 189, 189);
+            color: black;
+        }
+    }
+}
