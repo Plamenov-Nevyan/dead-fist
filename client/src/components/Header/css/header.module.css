@@ -1,4 +1,4 @@
-.site-header {
+.site-header, .site-header-mob {
   background-color: #000000;
   background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
   max-height: 24vh;
@@ -7,24 +7,52 @@
   padding: 0.6rem;
   position: relative;
 }
-.site-header .header-bg {
+.site-header .header-bg, .site-header-mob .header-bg {
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
   flex: 0;
 }
-.site-header .header-bg .header-bg-img {
+.site-header .header-bg .header-bg-img, .site-header-mob .header-bg .header-bg-img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
-.site-header .logo-container {
+.site-header .logo-container, .site-header-mob .logo-container {
   flex: 0 1 10%;
   height: 100%;
   display: flex;
   align-items: center;
 }
-.site-header .logo-container .logo {
+@media only screen and (max-width: 768px) {
+  .site-header .logo-container, .site-header-mob .logo-container {
+    flex: 0 1 20%;
+  }
+}
+.site-header .logo-container .logo, .site-header-mob .logo-container .logo {
   width: 100%;
   height: auto;
+}
+
+.site-header-mob .nav-dropdown {
+  position: absolute;
+  right: 1.2em;
+  bottom: -7em;
+  background-color: black;
+  padding: 0.6em;
+  border-radius: 0.6em;
+}
+.site-header-mob .bars-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: auto;
+  margin-right: 1em;
+  cursor: pointer;
+}
+.site-header-mob .bars-btn svg {
+  width: 3em;
+  height: 3em;
+  display: block;
+  fill: white;
 }/*# sourceMappingURL=header.module.css.map */

@@ -1,29 +1,35 @@
-.main-nav {
+.main-nav, .main-nav-mob {
   flex: 0 1 40%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.main-nav .nav-links {
+.main-nav .nav-links, .main-nav .nav-links-mob, .main-nav-mob .nav-links, .main-nav-mob .nav-links-mob {
   display: flex;
   list-style-type: none;
   gap: 2rem;
 }
-.main-nav .nav-links .nav-link {
+.main-nav .nav-links .nav-link, .main-nav .nav-links-mob .nav-link, .main-nav-mob .nav-links .nav-link, .main-nav-mob .nav-links-mob .nav-link {
   color: white;
   transition: ease-in-out 200ms;
   cursor: pointer;
   padding: 0.2em;
   border-radius: 0.3em;
 }
-.main-nav .nav-links .active-link {
+.main-nav .nav-links .active-link, .main-nav .nav-links-mob .active-link, .main-nav-mob .nav-links .active-link, .main-nav-mob .nav-links-mob .active-link {
   background-color: white;
   color: black;
   padding: 0.2em;
   border-radius: 0.3em;
 }
-.main-nav .nav-links .nav-link:hover {
+.main-nav .nav-links .nav-link:hover, .main-nav .nav-links-mob .nav-link:hover, .main-nav-mob .nav-links .nav-link:hover, .main-nav-mob .nav-links-mob .nav-link:hover {
   background-color: rgb(190, 189, 189);
   color: black;
+}
+
+.main-nav-mob .nav-links-mob {
+  display: flex;
+  flex-direction: column;
+  gap: initial;
 }/*# sourceMappingURL=navbar.module.css.map */

@@ -1,11 +1,11 @@
 
-.main-nav {
+.main-nav, .main-nav-mob {
     flex: 0 1 40%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    .nav-links {
+    .nav-links, .nav-links-mob {
         display: flex;
         list-style-type: none;
         gap: 2rem;
@@ -26,5 +26,13 @@
             background-color: rgb(190, 189, 189);
             color: black;
         }
+    }
+}
+
+.main-nav-mob {
+    .nav-links-mob {
+        display: flex;
+        flex-direction: column;
+        gap: initial;
     }
 }

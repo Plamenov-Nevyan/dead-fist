@@ -1,11 +1,10 @@
 import styles from "./css/navbar.module.css"
 import { NavLink } from "react-router-dom"
 
-export function Navbar(){
-    
+export function Navbar({isInResponsive}){
     return(
-        <nav className={styles['main-nav']}>
-            <ul className={styles['nav-links']}>
+        <nav className={isInResponsive ? styles['main-nav-mob'] : styles['main-nav']}>
+            <ul className={isInResponsive ? styles['nav-links-mob'] : styles['nav-links']}>
             <NavLink
               to={"/"}
               className={({ isActive }) =>
