@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
-li, a {
+li, a, input, label {
   font-size: 1.6rem;
+}
+
+button {
+  font-size: 1.3rem;
 }/*# sourceMappingURL=index.css.map */

@@ -24,9 +24,9 @@ export function Header(){
         <>
        { currentScreenWidth >= 768
         ?   <header className={styles['site-header']}>
-                <div className={styles["header-bg"]}>
+                {/* <div className={styles["header-bg"]}>
                     <img src={headerBg} className={styles["header-bg-img"]}/>
-                </div>
+                </div> */}
                 <div className={styles['logo-container']}>
                     <img src={logoImg} className={styles.logo}/>
                 </div>

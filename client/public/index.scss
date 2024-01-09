@@ -17,6 +17,10 @@ a {
     text-decoration: none;
 }
 
-li, a {
+li, a, input, label {
     font-size: clamp(1.2rem, 1.6rem, 1.8rem);
+}
+
+button {
+    font-size:  clamp(1.1rem, 1.3rem, 1.5rem);
 }
