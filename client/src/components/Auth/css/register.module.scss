@@ -1,11 +1,11 @@
-.login-section {
+.register-section {
     width: 100vw;
     height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../Login/login-bg.jpg');
+    background-image: url('../Register/register-bg.webp');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,29 +16,30 @@
         background-color: red;
         // padding: 1em;
         border-radius: .7em;
-        .login-form {
+        z-index: 1000;
+        .register-form {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 3em;
-            background-image: url('../Login/form-bg.webp');
+            background-image: url('../Register/form-bg.jpg');
             background-repeat: no-repeat;
             background-position: calc(-11em);
             background-size: cover;
             padding: 2em;
-            .login-fieldset {
+            position: relative;
+            .register-fieldset {
                 display: flex;
                 flex-direction: column;
                 border: none;
                 position: relative;
-                z-index: 1;
-                .login-input {
+                z-index: 2;
+                .register-input {
                     padding: 0.2em;
                     border: none;
                     background: transparent;
                     outline: none;
                     border-bottom: 2px solid cornflowerblue;
-                    opacity: 0.3;
                     color: azure;
                   }
                   .password-visibility {
@@ -55,18 +56,18 @@
                   .password-visibility:hover {
                     fill: lightgrey;
                   }
-                  .login-input:focus {
-                    opacity: 1;
+                  .register-input:focus {
+                    background-color: rgba(0, 0, 0, .5);
                     border-radius: 0 1em 0 0;
                     box-shadow: 1px -2px 16px -5px rgba(0, 0, 0, 0.39);
                     -webkit-box-shadow: 1px -2px 16px -5px rgba(0, 0, 0, 0.39);
                     -moz-box-shadow: 1px -2px 16px -5px rgba(0, 0, 0, 0.39);
                   }
-                  .login-input:focus + .login-label,
-                  .login-input + .static {
+                  .register-input:focus + .register-label,
+                  .register-input + .static {
                     transform: translateY(-1em);
                   }
-                  .login-label,
+                  .register-label,
                   .static {
                     padding: 0 0.4em;
                     position: absolute;
@@ -80,7 +81,12 @@
                     color: cornflowerblue;
                   }
             }
-            .login-btn {
+
+            #btn-fieldset {
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              .register-btn {
                 flex-shrink: 1;
                 max-width: 20%;
                 padding: 0.2em 0.4em;
@@ -100,21 +106,68 @@
                 color: white;
                 font-weight: bold;
               }
-              .login-btn:hover {
+              .register-btn:hover {
                 background-position: right bottom;
                 color: black;
               }
+              .tac-container {
+                display: flex;
+                align-items: baseline;
+                gap: .5em;
+                .tac-span {
+                  color: white;
+                  display: flex;
+                  align-items: center;
+                  gap: .3em;
+                  .tac-modal {
+                    color: cornflowerblue;
+                    cursor: pointer;
+                    transition: ease-in-out 200ms;
+                  }
+                  .tac-modal:hover{
+                    text-decoration: underline;
+                    font-weight: bold;
+                  }
+                }
+                .tac-input {
+                  cursor: pointer;
+                  padding: 1em;
+                  -ms-transform: scale(2); 
+                  -moz-transform: scale(2);
+                  -webkit-transform: scale(2); 
+                  -o-transform: scale(2);
+                  transform: scale(2);
+                  padding: 10px;
+                }
+              }
+            }
+          .redirect-span {
+            position: relative;
+            z-index: 2;
+            color: white;
+            display: flex;
+            align-items: baseline;
+            gap: .3em;
+            .redirect-link {
+              color: cornflowerblue;
+              transition: ease-in-out 200ms;
+            }
+            .redirect-link:hover{
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
         }
     }
     .form-container::after {
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        background-color: rgba(0, 0, 0, .5);
-      }
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-color: rgba(0, 0, 0, .5);
+    }
 }

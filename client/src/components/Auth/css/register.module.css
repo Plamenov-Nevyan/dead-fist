@@ -1,0 +1,163 @@
+.register-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../Register/register-bg.webp");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.register-section .form-container {
+  flex: 0 1 40%;
+  position: relative;
+  background-color: red;
+  border-radius: 0.7em;
+  z-index: 1000;
+}
+.register-section .form-container .register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  background-image: url("../Register/form-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: -11em;
+  background-size: cover;
+  padding: 2em;
+  position: relative;
+}
+.register-section .form-container .register-form .register-fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  position: relative;
+  z-index: 2;
+}
+.register-section .form-container .register-form .register-fieldset .register-input {
+  padding: 0.2em;
+  border: none;
+  background: transparent;
+  outline: none;
+  border-bottom: 2px solid cornflowerblue;
+  color: azure;
+}
+.register-section .form-container .register-form .register-fieldset .password-visibility {
+  max-width: 2em;
+  max-height: 2em;
+  fill: azure;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  z-index: 2;
+  transition: ease-in-out 200ms;
+}
+.register-section .form-container .register-form .register-fieldset .password-visibility:hover {
+  fill: lightgrey;
+}
+.register-section .form-container .register-form .register-fieldset .register-input:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 1em 0 0;
+  box-shadow: 1px -2px 16px -5px rgba(0, 0, 0, 0.39);
+  -webkit-box-shadow: 1px -2px 16px -5px rgba(0, 0, 0, 0.39);
+  -moz-box-shadow: 1px -2px 16px -5px rgba(0, 0, 0, 0.39);
+}
+.register-section .form-container .register-form .register-fieldset .register-input:focus + .register-label,
+.register-section .form-container .register-form .register-fieldset .register-input + .static {
+  transform: translateY(-1em);
+}
+.register-section .form-container .register-form .register-fieldset .register-label,
+.register-section .form-container .register-form .register-fieldset .static {
+  padding: 0 0.4em;
+  position: absolute;
+  left: 0.5em;
+  top: 0.2em;
+  left: 0.2em;
+  transition: transform 200ms ease-in-out;
+  pointer-events: none;
+  font-weight: bold;
+  font-style: italic;
+  color: cornflowerblue;
+}
+.register-section .form-container .register-form #btn-fieldset {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.register-section .form-container .register-form #btn-fieldset .register-btn {
+  flex-shrink: 1;
+  max-width: 20%;
+  padding: 0.2em 0.4em;
+  border-radius: 0.6em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to left, rgb(63, 251, 135) 32%, rgba(252, 70, 199, 0.9276960784) 68%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+  transition: ease-in-out 200ms;
+  transition: all 600ms ease;
+  color: white;
+  font-weight: bold;
+}
+.register-section .form-container .register-form #btn-fieldset .register-btn:hover {
+  background-position: right bottom;
+  color: black;
+}
+.register-section .form-container .register-form #btn-fieldset .tac-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+.register-section .form-container .register-form #btn-fieldset .tac-container .tac-span {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.register-section .form-container .register-form #btn-fieldset .tac-container .tac-span .tac-modal {
+  color: cornflowerblue;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+.register-section .form-container .register-form #btn-fieldset .tac-container .tac-span .tac-modal:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.register-section .form-container .register-form #btn-fieldset .tac-container .tac-input {
+  cursor: pointer;
+  padding: 1em;
+  transform: scale(2);
+  padding: 10px;
+}
+.register-section .form-container .register-form .redirect-span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+}
+.register-section .form-container .register-form .redirect-span .redirect-link {
+  color: cornflowerblue;
+  transition: ease-in-out 200ms;
+}
+.register-section .form-container .register-form .redirect-span .redirect-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.register-section .form-container::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=register.module.css.map */

@@ -1,8 +1,5 @@
 import styles from "../css/login.module.css";
-import loginBg from "./login-bg.jpg";
-import formBg from "./form-bg.webp";
 import { useState } from "react";
-import { effect, signal } from "@preact/signals-react";
 
 export function Login() {
   const [loginFormVals, setLoginFormVals] = useState({
