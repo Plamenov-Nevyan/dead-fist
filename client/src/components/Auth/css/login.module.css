@@ -90,6 +90,8 @@
   border: none;
   outline: none;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
   background: linear-gradient(to left, rgb(63, 251, 135) 32%, rgba(252, 70, 199, 0.9276960784) 68%);
   background-size: 200% 100%;
   background-position: left bottom;
@@ -101,6 +103,22 @@
 .login-section .form-container .login-form .login-btn:hover {
   background-position: right bottom;
   color: black;
+}
+.login-section .form-container .login-form .redirect-span {
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+}
+.login-section .form-container .login-form .redirect-span .redirect-link {
+  color: cornflowerblue;
+  transition: ease-in-out 200ms;
+}
+.login-section .form-container .login-form .redirect-span .redirect-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 .login-section .form-container::after {
   display: block;

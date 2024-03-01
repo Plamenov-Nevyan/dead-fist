@@ -1,5 +1,6 @@
 import styles from "../css/login.module.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export function Login() {
   const [loginFormVals, setLoginFormVals] = useState({
@@ -108,6 +109,10 @@ export function Login() {
             </label>
           </fieldset>
           <button className={styles["login-btn"]}>Enter</button>
+          <span className={styles['redirect-span']}>
+            Don't have an account already? 
+            <NavLink to="/login" className={styles['redirect-link']}>Sign Up</NavLink>
+          </span>
         </form>
       </div>
     </section>

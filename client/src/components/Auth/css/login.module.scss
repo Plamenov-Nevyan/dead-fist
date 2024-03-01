@@ -88,6 +88,8 @@
                 border: none;
                 outline: none;
                 cursor: pointer;
+                position: relative;
+                z-index: 1;
                 background: linear-gradient(
                   to left,
                   rgba(63, 251, 135, 1) 32%,
@@ -104,7 +106,23 @@
                 background-position: right bottom;
                 color: black;
               }
+              .redirect-span {
+                position: relative;
+                z-index: 2;
+                color: white;
+                display: flex;
+                align-items: baseline;
+                gap: .3em;
+                .redirect-link {
+                  color: cornflowerblue;
+                  transition: ease-in-out 200ms;
+                }
+                .redirect-link:hover{
+                  text-decoration: underline;
+                  cursor: pointer;
+                }
         }
+    }
     }
     .form-container::after {
         display: block;

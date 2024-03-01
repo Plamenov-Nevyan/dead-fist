@@ -1,6 +1,7 @@
 import styles from "../css/register.module.css"
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { registerUser } from "../../../services/authServices";
 
 
 export function Register(){
@@ -27,6 +28,12 @@ export function Register(){
         const setPasswordVisibility = () => {
             setShowPassword((currStatus) => !currStatus);
           };
+
+        const onRegister = async (e) => {
+          e.preventDefault()
+          console.log(`ee`)
+          await registerUser(registerFormVals)
+        } 
           
     return (
         <section className={styles["register-section"]}>
@@ -143,7 +150,7 @@ export function Register(){
           </fieldset>
           <fieldset className={styles['register-fieldset']} id={styles['btn-fieldset']}>
             {tacAccepted
-                ? <button className={styles["register-btn"]}>Sign Up</button>
+                ? <button onClick={(e) => onRegister(e)} className={styles["register-btn"]}>Sign Up</button>
                 : <button disabled className={styles["register-btn"]}>Sign Up</button>
             }
             <div className={styles['tac-container']}>
