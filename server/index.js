@@ -1,12 +1,26 @@
 const cors = require("cors");
+const { v4: uuidv4 } = require('uuid');
 const express = require("express");
 const expressConfig = require("./config/expressConfig.js");
 const keyConstants = require("./config/constants.js");
 const routes = require('./routes.js')
 const { client, connectToDatabase } = require('./config/db.js');
-
+const session = require('express-session')
+const {redisClient, redisStore} = require('./config/redis.js')()
 connectToDatabase()
 const app = express();
+app.use(session({
+  store: redisStore,
+  secret: 'placeholder',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 60000
+  },
+  genid: () => {
+    uuidv4()
+  }
+}));
 expressConfig(app);
 app.use(cors());
 app.use(routes)
