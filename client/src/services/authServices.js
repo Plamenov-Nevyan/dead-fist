@@ -11,3 +11,11 @@ export const registerUser = async(userData) => {
         body: JSON.stringify(userData)
     })
 }
+
+export const loginUser = async(userData) => {
+    await fetch(`${baseURL}${endpoints.login}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(userData)
+    })
+}

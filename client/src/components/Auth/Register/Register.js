@@ -31,7 +31,6 @@ export function Register(){
 
         const onRegister = async (e) => {
           e.preventDefault()
-          console.log(`ee`)
           await registerUser(registerFormVals)
         } 
           

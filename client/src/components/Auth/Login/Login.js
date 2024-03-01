@@ -1,6 +1,7 @@
 import styles from "../css/login.module.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {loginUser} from "../../../services/authServices";
 
 export function Login() {
   const [loginFormVals, setLoginFormVals] = useState({
@@ -18,14 +19,19 @@ export function Login() {
       };
     });
 
-    const setPasswordVisibility = () => {
-        setShowPassword((currStatus) => !currStatus);
-      };
+  const setPasswordVisibility = () => {
+      setShowPassword((currStatus) => !currStatus);
+    };
+
+  const onLogin = async (e) => {
+      e.preventDefault()
+      await loginUser(loginFormVals)
+    } 
 
   return (
     <section className={styles["login-section"]}>
       <div className={styles["form-container"]}>
-        <form className={styles["login-form"]}>
+        <form className={styles["login-form"]} onSubmit={(e) => onLogin(e)}>
           <fieldset className={styles["login-fieldset"]}>
             <input
               onChange={(e) => onValsChange(e)}

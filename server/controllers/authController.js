@@ -1,5 +1,5 @@
 const express = require('express')
-const {registerUser} = require("../services/authServices.js")
+const {registerUser, loginUser} = require("../services/authServices.js")
 const router = express.Router()
 
 router.post('/register', (req, res) => {
@@ -11,7 +11,11 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-
+    loginUser(req.body)
+    .then(() => {
+        res.end()
+    })
+    .catch(err => console.log(err))
 })
 
 

@@ -1,9 +1,5 @@
 const {Client} = require("pg")
 const { user, host, database, password, port } = require("./dbConfig");
-console.log(
-  user, 
-  password
-)
  
 const client = new Client({
   user,
@@ -13,6 +9,17 @@ const client = new Client({
   port,
 });
  
-// client.connect();
+async function connectToDatabase() {
+  try {
+      await client.connect();
+      console.log('Connected to the database');
+  } catch (err) {
+      console.error('Error connecting to the database:', err);
+      process.exit(1);
+  }
+}
 
-module.exports = client;
+module.exports = {
+  client,
+  connectToDatabase
+};
