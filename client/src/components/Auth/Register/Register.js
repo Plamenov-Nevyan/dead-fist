@@ -2,6 +2,7 @@ import styles from "../css/register.module.css"
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { registerUser } from "../../../services/authServices";
+import {Modal} from "../../Modal/Modal";
 
 
 export function Register(){
@@ -13,6 +14,7 @@ export function Register(){
       });
       const [tacAccepted, setTacAccepted] = useState(false)
       const [showPassword, setShowPassword] = useState(false);
+      const [showInfoModal, setShowInfoModal] = useState(false)
     
       const onValsChange = (e) => {
         e.target.type === 'checkbox'
@@ -32,9 +34,34 @@ export function Register(){
         const onRegister = async (e) => {
           e.preventDefault()
           await registerUser(registerFormVals)
+          setShowInfoModal(true)
         } 
+
+        const redirectToCharCreator = () => {
+
+        }
+
+        const createCharLater = () => {
+
+        }
           
     return (
+      <>
+        {showInfoModal && <Modal buttons={
+            [
+              {
+                text: 'Ok', 
+                func: redirectToCharCreator
+                }, 
+                {
+                  text: 'I will do it later',
+                  func: createCharLater
+                }
+            ]}
+            text={'Congratulations! Your registration was successfull, you can now proceed to create your character.'}
+            showCloseBtn={false} 
+          />
+        }
         <section className={styles["register-section"]}>
           <div className={styles["form-container"]}>
             <form className={styles["register-form"]}>
@@ -167,5 +194,6 @@ export function Register(){
             </form>
           </div>
         </section>
+      </>
       );
 }
