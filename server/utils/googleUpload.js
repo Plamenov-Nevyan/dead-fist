@@ -16,7 +16,7 @@ module.exports = (file) => {
        },
        resource:{
            'name': file.originalname,
-           'parents': ['1vcXGjc-lYsiIxxs3Fww05H3YXa_7PDR']
+           'parents': ['1vcXGjc-lYsiIxxs3Fww05H3YXa_7PDRJ']
        },
        fields: "id"
    })

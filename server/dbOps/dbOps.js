@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const keyConstants = require('./config/constants.js')
+const keyConstants = require('../config/constants.js')
 
 
 
@@ -24,10 +24,12 @@ exports.insertUser = async (username, email, password, client) => {
 exports.retrieveUser = async (username, email, password, client) => {
     try {
         const query = {
-            text: 'SELECT username, email, id, secret FROM users WHERE username = $1 AND email = $2 ',
+            text: 'SELECT username, email, id, session_secret, password FROM users WHERE username = $1 AND email = $2 ',
             values: [username, email]
         };
         const result = await client.query(query)
+        console.log(result.rows[0])
+
         if (result.rows.length === 1) {
             let isPassCorrect = await bcrypt.compare(password, result.rows[0].password)
             if(isPassCorrect){

@@ -1,0 +1,11 @@
+.avatar-img, .avatar-img-selected {
+    max-width: 100%;
+    min-width: 50%;
+    display: block;
+    height: auto;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.avatar-img-selected {
+    border: 2px solid white;
+}

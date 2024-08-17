@@ -17,10 +17,14 @@ a {
     text-decoration: none;
 }
 
-li, a, input, label {
-    font-size: clamp(1.2rem, 1.6rem, 1.8rem);
+li, a, input, label, button, select, textarea {
+    font-size: 1.3rem;
 }
 
-button {
-    font-size:  clamp(1.1rem, 1.3rem, 1.5rem);
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+   font-size:  1.4rem;
 }

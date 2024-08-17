@@ -16,10 +16,14 @@ a {
   text-decoration: none;
 }
 
-li, a, input, label {
-  font-size: 1.6rem;
+li, a, input, label, button, select, textarea {
+  font-size: 1.3rem;
 }
 
-button {
-  font-size: 1.3rem;
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.4rem;
 }/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,37 @@
+.char-creator-section {
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background-image: url("../../../../public/images/pattern.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.char-creator-section .creator-heading {
+  flex: 0 1 100%;
+  text-align: center;
+}
+.char-creator-section .slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 50%;
+}
+.char-creator-section .slider-container .choose-avatar-heading {
+  width: 100%;
+  text-align: center;
+}
+.char-creator-section .skills-selector-container {
+  flex: 0 1 45%;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-image: url("../images/creator-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: -1px -2px 15px 0px rgb(204, 38, 38);
+}/*# sourceMappingURL=characterCreator.module.css.map */

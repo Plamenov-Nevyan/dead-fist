@@ -1,7 +1,7 @@
 import styles from "../css/login.module.css";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import {loginUser} from "../../../services/authServices";
+import {useNavigate, NavLink} from "react-router-dom";
 
 export function Login() {
   const [loginFormVals, setLoginFormVals] = useState({
@@ -10,6 +10,7 @@ export function Login() {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate()
 
   const onValsChange = (e) =>
     setLoginFormVals((oldVals) => {
@@ -26,6 +27,7 @@ export function Login() {
   const onLogin = async (e) => {
       e.preventDefault()
       await loginUser(loginFormVals)
+      navigate('/create-character')
     } 
 
   return (

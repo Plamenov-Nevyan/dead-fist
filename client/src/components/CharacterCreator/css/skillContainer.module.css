@@ -1,0 +1,22 @@
+.skill-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 1 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.skill-container .skill-name {
+  flex: 0 1 100%;
+  text-align: center;
+  color: white;
+}
+.skill-container .skill-value {
+  color: white;
+}
+.skill-container .value-manipulator .value-btn {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  fill: white;
+}/*# sourceMappingURL=skillContainer.module.css.map */
