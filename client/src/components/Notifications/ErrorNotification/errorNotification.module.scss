@@ -1,0 +1,35 @@
+.error-notification {
+  position: absolute;
+  top: 1em;
+  right: 0;
+  z-index: 1000;
+  padding: 1em;
+  width: 20vw;
+  background: indianred;
+  border-radius: 0.7em;
+  display: flex;
+  flex-direction: column;
+  .dismiss {
+    width: 2em;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    margin-left: auto;
+    svg {
+      max-width: 1.5em;
+      max-height: 1.5em;
+      fill: green;
+      transition: ease-in-out 200ms;
+    }
+  }
+  .dismiss:hover {
+    svg {
+      fill: rgb(3, 250, 3);
+    }
+  }
+}
+
+.error-notification-sticky {
+  position: sticky;
+}

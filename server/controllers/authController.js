@@ -13,13 +13,15 @@ router.post('/register', (req, res) => {
         }
         req.session.save((err) => {
             if (err) {
-                console.error('Session save error:', err);
-                return res.status(500).send('Failed to save session');
+                throw {message: `Session save error: ${err}`};
             }
             res.json({ message: 'Signed up successfully' });
         });
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+        console.log(err)
+        res.status(403).json({message: err.message})
+    })
 })
 
 router.post('/login', (req, res) => {

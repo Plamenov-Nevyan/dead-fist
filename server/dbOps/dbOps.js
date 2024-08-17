@@ -56,10 +56,21 @@ exports.emailExists = async (email, client) => {
           if (data.rowCount == 0) return false; 
           return data.rows[0];
     }catch(err){
-        console.log(err)
         throw err
     }
   };
+
+  exports.usernameExists = async (username, client) => {
+    try {
+        const data = await client.query("SELECT * FROM users WHERE username=$1", [
+            username,
+          ]);
+          if (data.rowCount == 0) return false; 
+          return data.rows[0];
+    }catch(err){
+        throw err
+    }
+  }
 
   async function createSessionSecret(username, changeOrNew, client){
     try {

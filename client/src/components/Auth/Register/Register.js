@@ -1,8 +1,11 @@
 import styles from "../css/register.module.css"
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { registerUser } from "../../../services/authServices";
 import {Modal} from "../../Modal/Modal";
+import { notificationsContext } from "../../../contexts/NotificationsContext";
+import { useNotifications } from "../../../hooks/useNotifications";
+import { ErrorNotification } from "../../Notifications/ErrorNotification/ErrorNotification";
 
 
 export function Register(){
@@ -15,6 +18,8 @@ export function Register(){
       const [tacAccepted, setTacAccepted] = useState(false)
       const [showPassword, setShowPassword] = useState(false);
       const [showInfoModal, setShowInfoModal] = useState(false)
+      const { error } = useContext(notificationsContext);
+      const { setNewError } = useNotifications();
     
       const onValsChange = (e) => {
         e.target.type === 'checkbox'
@@ -33,8 +38,16 @@ export function Register(){
 
         const onRegister = async (e) => {
           e.preventDefault()
-          await registerUser(registerFormVals)
-          setShowInfoModal(true)
+          try {
+            let resp = await registerUser(registerFormVals)
+            if(!resp.ok){
+              let err = await resp.json()
+              console.log(err)
+              throw err
+            }
+          }catch(err){
+            setNewError(err.message)
+          }
         } 
 
         const redirectToCharCreator = () => {
@@ -47,7 +60,8 @@ export function Register(){
           
     return (
       <>
-        {showInfoModal && <Modal buttons={
+      {error && <ErrorNotification />}
+        {/* {showInfoModal && <Modal buttons={
             [
               {
                 text: 'Ok', 
@@ -61,7 +75,7 @@ export function Register(){
             text={'Congratulations! Your registration was successfull, you can now proceed to create your character.'}
             showCloseBtn={false} 
           />
-        }
+        } */}
         <section className={styles["register-section"]}>
           <div className={styles["form-container"]}>
             <form className={styles["register-form"]}>
