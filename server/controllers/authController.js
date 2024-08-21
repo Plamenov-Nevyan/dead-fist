@@ -1,8 +1,10 @@
 const express = require('express')
 const {registerUser, loginUser} = require("../services/authServices.js")
+const authValidator=require('../middlewares/authValidator.js')
+const schemas = require('../utils/JoiSchemas.js')
 const router = express.Router()
 
-router.post('/register', (req, res) => {
+router.post('/register', authValidator(schemas.authSchema), (req, res) => {
     registerUser(req.body)
     .then((user) => {
         req.session.userData = {
@@ -15,7 +17,7 @@ router.post('/register', (req, res) => {
             if (err) {
                 throw {message: `Session save error: ${err}`};
             }
-            res.json({ message: 'Signed up successfully' });
+            res.json({ message: `Welcome to Dead Fist, ${user.username}!` });
         });
     })
     .catch(err => {
@@ -39,15 +41,14 @@ router.post('/login', (req, res) => {
                 console.error('Session save error:', err);
                 return res.status(500).send('Failed to save session');
             }
-            res.json({ message: 'Logged in successfully' });
+            res.json({ message: `Welcome back, ${user.username}!` });
         });
     })
-    .catch(err => console.log(err))
+    .catch(err => res.status(403).json({message: err.message}))
 })
 
 router.get('/get-session', (req, res) => {
     try {
-        console.log(req.session)
         res.json(req.session)
     }catch(err){
         console.log(err)

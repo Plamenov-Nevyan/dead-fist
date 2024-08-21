@@ -27,10 +27,9 @@ exports.registerUser = async (userData) => {
 
 exports.loginUser = async (userData) => {
     try {
-        console.log(userData)
-        let user = await retrieveUser(userData.username, userData.email, userData.password, client)
+        let user = await retrieveUser(userData.email, userData.password, client)
         return user
     }catch(err){
-
+        throw err
     }
 }

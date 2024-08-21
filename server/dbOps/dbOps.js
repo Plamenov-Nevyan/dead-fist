@@ -21,30 +21,26 @@ exports.insertUser = async (username, email, password, client) => {
     }
 }
 
-exports.retrieveUser = async (username, email, password, client) => {
+exports.retrieveUser = async (email, password, client) => {
     try {
         const query = {
-            text: 'SELECT username, email, id, session_secret, password FROM users WHERE username = $1 AND email = $2 ',
-            values: [username, email]
+            text: 'SELECT username, email, id, session_secret, password FROM users WHERE email = $1',
+            values: [email]
         };
         const result = await client.query(query)
-        console.log(result.rows[0])
-
         if (result.rows.length === 1) {
             let isPassCorrect = await bcrypt.compare(password, result.rows[0].password)
             if(isPassCorrect){
                 const secret = await createSessionSecret(username, 'new', client)
-                console.log(result.rows[0])
                 return {...result.rows[0], secret}
             }else {
-                throw `Wrong login information!`
+                 throw {message: 'Wrong email and/or password'}
             }
         } else {
-            throw `Wrong login information!`
+             throw {message: 'Wrong email and/or password'}
         }
     } catch(err) {
-        console.error(err)
-        throw err
+        throw {message: 'Wrong email and/or password'}
     }
 }
 

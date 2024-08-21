@@ -6,6 +6,7 @@ import {Modal} from "../../Modal/Modal";
 import { notificationsContext } from "../../../contexts/NotificationsContext";
 import { useNotifications } from "../../../hooks/useNotifications";
 import { ErrorNotification } from "../../Notifications/ErrorNotification/ErrorNotification";
+import {CheckInputErrors} from "../../../utils/CheckInputErrors";
 
 
 export function Register(){
@@ -13,7 +14,13 @@ export function Register(){
         username: "",
         email: "",
         password: "",
-        c_password: ""
+        c_password: "",
+        errors: {
+          username:[] ,
+          email:[] ,
+          password:[] ,
+          c_password:[] ,
+        }
       });
       const [tacAccepted, setTacAccepted] = useState(false)
       const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +38,21 @@ export function Register(){
             };
           });
       }
+
+      const onInputFocus = (e) => {
+        e.preventDefault()
+        if(registerFormVals.errors[e.target.name] !== ''){
+          setRegisterFormvals(currValue => {
+            return {
+              ...currValue,
+              errors : {
+                ...currValue.errors,
+                [e.target.name] : ''
+              }
+            }
+          })
+        }
+      }
     
         const setPasswordVisibility = () => {
             setShowPassword((currStatus) => !currStatus);
@@ -38,12 +60,24 @@ export function Register(){
 
         const onRegister = async (e) => {
           e.preventDefault()
+          let {errors, ...inputs} = registerFormVals
+          let checkedErrors = CheckInputErrors(inputs, 'register')
+          if (Object.values(checkedErrors).some(errArr => errArr.length > 0)){
+            setRegisterFormvals(oldVals => {
+              return {
+                ...oldVals,
+                errors: {
+                  ...checkedErrors
+                }
+              }
+            })
+            return
+          }
           try {
             let resp = await registerUser(registerFormVals)
             if(!resp.ok){
               let err = await resp.json()
-              console.log(err)
-              throw err
+              return setNewError(err.error[0])
             }
           }catch(err){
             setNewError(err.message)
@@ -82,6 +116,7 @@ export function Register(){
               <fieldset className={styles["register-fieldset"]}>
                 <input
                   onChange={(e) => onValsChange(e)}
+                  onFocus={(e) => onInputFocus(e)}
                   className={styles["register-input"]}
                   type="text"
                   name="username"
@@ -96,10 +131,15 @@ export function Register(){
                 >
                   Username
                 </label>
+                {registerFormVals.errors.username.length > 0 && registerFormVals.errors.username.map(
+                  error => <span className={styles['error-span-register']} id='register-username'>{error}</span>
+                  )
+                }
               </fieldset>
               <fieldset className={styles["register-fieldset"]}>
                 <input
                   onChange={(e) => onValsChange(e)}
+                  onFocus={(e) => onInputFocus(e)}
                   className={styles["register-input"]}
                   type="text"
                   name="email"
@@ -114,6 +154,10 @@ export function Register(){
                 >
                   Email
                 </label>
+               {registerFormVals.errors.email.length > 0 && registerFormVals.errors.email.map(
+                error => <span className={styles['error-span-register']} id='register-email'>{error}</span>
+                )
+              }
               </fieldset>
               <fieldset className={styles["register-fieldset"]}>
                 {showPassword ? (
@@ -128,6 +172,7 @@ export function Register(){
                     </svg>
                     <input
                       onChange={(e) => onValsChange(e)}
+                      onFocus={(e) => onInputFocus(e)}
                       type="text"
                       name="password"
                       className={styles["register-input"]}
@@ -145,6 +190,7 @@ export function Register(){
                     </svg>
                     <input
                       onChange={(e) => onValsChange(e)}
+                      onFocus={(e) => onInputFocus(e)}
                       type="password"
                       name="password"
                       className={styles["register-input"]}
@@ -160,11 +206,16 @@ export function Register(){
                 >
                   Password
                 </label>
+                {registerFormVals.errors.password.length > 0 && registerFormVals.errors.password.map(
+                  error => <span className={styles['error-span-register']} id='register-password'>{error}</span>
+                  )
+                }
               </fieldset>
               <fieldset className={styles["register-fieldset"]}>
             {showPassword ? (
               <input
                 onChange={(e) => onValsChange(e)}
+                onFocus={(e) => onInputFocus(e)}
                 type="text"
                 name="c_password"
                 className={styles["register-input"]}
@@ -172,6 +223,7 @@ export function Register(){
             ) : (
               <input
                 onChange={(e) => onValsChange(e)}
+                onFocus={(e) => onInputFocus(e)}
                 type="password"
                 name="c_password"
                 className={styles["register-input"]}
@@ -187,6 +239,10 @@ export function Register(){
             >
               Confirm Password...
             </label>
+            {registerFormVals.errors.c_password.length > 0 && registerFormVals.errors.c_password.map(
+              error => <span className={styles['error-span-register']} id='register-c_password'>{error}</span>
+              )
+            }
           </fieldset>
           <fieldset className={styles['register-fieldset']} id={styles['btn-fieldset']}>
             {tacAccepted
