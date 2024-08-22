@@ -24,14 +24,14 @@ exports.insertUser = async (username, email, password, client) => {
 exports.retrieveUser = async (email, password, client) => {
     try {
         const query = {
-            text: 'SELECT username, email, id, session_secret, password FROM users WHERE email = $1',
+            text: 'SELECT username, email, id, session_secret, password, has_created_character, profile_picture FROM users WHERE email = $1',
             values: [email]
         };
         const result = await client.query(query)
         if (result.rows.length === 1) {
             let isPassCorrect = await bcrypt.compare(password, result.rows[0].password)
             if(isPassCorrect){
-                const secret = await createSessionSecret(username, 'new', client)
+                const secret = await createSessionSecret(result.rows[0].username, 'new', client)
                 return {...result.rows[0], secret}
             }else {
                  throw {message: 'Wrong email and/or password'}

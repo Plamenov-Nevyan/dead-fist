@@ -1,9 +1,10 @@
 import styles from "../css/register.module.css"
 import { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { registerUser } from "../../../services/authServices";
 import {Modal} from "../../Modal/Modal";
 import { notificationsContext } from "../../../contexts/NotificationsContext";
+import { authContext } from "../../../contexts/authContext";
 import { useNotifications } from "../../../hooks/useNotifications";
 import { ErrorNotification } from "../../Notifications/ErrorNotification/ErrorNotification";
 import {CheckInputErrors} from "../../../utils/CheckInputErrors";
@@ -26,7 +27,9 @@ export function Register(){
       const [showPassword, setShowPassword] = useState(false);
       const [showInfoModal, setShowInfoModal] = useState(false)
       const { error } = useContext(notificationsContext);
+      const {setIsAuth} = useContext(authContext)
       const { setNewError } = useNotifications();
+      const navigate = useNavigate()
     
       const onValsChange = (e) => {
         e.target.type === 'checkbox'
@@ -79,6 +82,8 @@ export function Register(){
               let err = await resp.json()
               return setNewError(err.error[0])
             }
+            setIsAuth(true)
+            navigate('/create-character')
           }catch(err){
             setNewError(err.message)
           }

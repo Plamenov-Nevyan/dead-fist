@@ -19,7 +19,8 @@ export function CharacterCreator(){
             shooting: 1,
             agility: 1,
             intelligence: 1,
-            charisma: 1
+            charisma: 1,
+            constitution: 1
         },
         bio: ''
     })
@@ -28,7 +29,8 @@ export function CharacterCreator(){
         shooting: characterStats.class == 'police-officer' ? 3 : 1,
         agility: characterStats.class == 'barman' ? 3 : 1,
         intelligence: characterStats.class == 'teacher' ? 3 : 1,
-        charisma: characterStats.class == 'salesman' ? 3 : 1
+        charisma: characterStats.class == 'salesman' ? 3 : 1,
+        constitution: characterStats.class == 'fitness-instructor' ? 3 : 1
     }))
     const [remainingSkillPoints, setRemainingSkillPoints] = useState(5)
     
@@ -43,9 +45,11 @@ export function CharacterCreator(){
                     shooting: e.target.value === 'police-officer' ? 3 : 1,
                     agility: e.target.value === 'barman' ? 3 : 1,
                     intelligence: e.target.value === 'teacher' ? 3 : 1,
-                    charisma: e.target.value === 'salesman' ? 3 : 1
+                    charisma: e.target.value === 'salesman' ? 3 : 1,
+                    constitution: e.target.value === 'fitness-instructor' ? 3 : 1
                 }
             })
+            setRemainingSkillPoints(5)
         }else if(e.target.name === 'gender'){
             onGenderChange(e.target.value)
         }

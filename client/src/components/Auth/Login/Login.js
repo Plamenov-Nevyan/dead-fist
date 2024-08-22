@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import {loginUser} from "../../../services/authServices";
 import {useNavigate, NavLink} from "react-router-dom";
 import { notificationsContext } from "../../../contexts/NotificationsContext";
+import { authContext } from "../../../contexts/authContext";
 import { useNotifications } from "../../../hooks/useNotifications";
 import { ErrorNotification } from "../../Notifications/ErrorNotification/ErrorNotification";
 import {CheckInputErrors} from "../../../utils/CheckInputErrors";
@@ -20,6 +21,7 @@ export function Login() {
   const navigate = useNavigate()
   const { error } = useContext(notificationsContext);
   const { setNewError } = useNotifications();
+  const {setIsAuth} = useContext(authContext)
 
   const onValsChange = (e) =>
     setLoginFormVals((oldVals) => {
@@ -64,11 +66,16 @@ export function Login() {
       }
       try {
        let resp = await loginUser(loginFormVals)
+       let data = await resp.json()
        if(!resp.ok){
-        let error = await resp.json()
-        return setNewError(error.message)
+        return setNewError(data.message)
        }
-        navigate('/create-character')
+        setIsAuth(true)
+        if(!data.hasCreatedCharacter){
+          navigate('/create-character')
+        }else{
+
+        }
       }catch(err){
         setNewError(err.message)
       }

@@ -64,6 +64,7 @@ export function SkillsSelector({
                 <option value='barman'>Barman</option>
                 <option value='teacher'>Teacher</option>
                 <option value='salesman'>Salesman</option>
+                <option value='fitness-instructor'>Fitness Instructor</option>
             </select>
         </div>
         <div className= {styles.skills}>
@@ -97,6 +98,12 @@ export function SkillsSelector({
             />
             <SkillContainer 
                 skillName={'Charisma'}
+                remainingSkillPoints={remainingSkillPoints} 
+                changeSkillPoints={changeSkillPoints} 
+                skillValues={skillValues}
+            />
+             <SkillContainer 
+                skillName={'Constitution'}
                 remainingSkillPoints={remainingSkillPoints} 
                 changeSkillPoints={changeSkillPoints} 
                 skillValues={skillValues}
