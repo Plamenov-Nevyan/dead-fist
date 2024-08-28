@@ -38,3 +38,20 @@ exports.insertCharacter = async (characterData, client) => {
         throw err
     }
 }
+
+exports.retrieveIntroImages = async (client) => {
+    try {
+        const query = {
+            text: 'SELECT * FROM intro_images'
+
+        }
+         const result = await client.query(query)
+        if (result.rows.length >= 1) {
+            return result.rows
+        } else {
+            throw {message: `Error while retrieving intro images...`}
+        }
+    } catch(err) {
+        throw err
+    }
+}

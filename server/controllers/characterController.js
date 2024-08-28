@@ -1,5 +1,5 @@
 const express = require('express')
-const {getAvatars, createCharacter}=require('../services/characterServices')
+const {getAvatars, createCharacter, retrieveIntroImages, getIntroImages}=require('../services/characterServices')
 const {confirmCharCreated} = require('../services/authServices')
 const router = express.Router()
 
@@ -25,6 +25,16 @@ router.post('/create', (req, res) => {
         res.status(500).json({message: 'Character creation failed, please try again or contact an admin!'})
     })
 })
+
+router.get('/get-intro-images', (req, res) => {
+    getIntroImages()
+    .then((images) => {
+        res.json(images)
+    })
+    .catch(err => {
+        res.status(500).json({message: err.message})
+    })
+})  
 
 
 module.exports = router

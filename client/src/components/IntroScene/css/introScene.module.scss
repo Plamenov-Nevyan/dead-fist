@@ -1,0 +1,167 @@
+.intro-scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .carousel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position:center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(1);
+        transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+        .description-fade-out {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            .text {
+                display: none;
+            }
+        }
+    }
+    .carousel-active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position:center;
+        background-repeat: no-repeat;
+        opacity: 1;
+        transform: scale(1.1);
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+        .description {
+            border-radius: .6em;
+            background-color: rgba(0, 0, 0, .4);
+            padding: 1em;
+            overflow: hidden;
+            max-width: 100%;
+            text-wrap: wrap;
+            // white-space: nowrap;
+            margin: 0 auto;
+            animation:
+            typewriter 6s ease-in-out 1 normal forwards;
+           .text {
+            opacity: 0;
+            letter-spacing: .15em;
+            font-size: 2em;
+            color: red;
+            animation:
+            typewriter 6s ease-in-out 1 normal forwards,
+            blink-caret 0.75s step-end infinite;
+            ;
+           }
+        }
+        .description-fade-out {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            .text {
+                display: none;
+            }
+        }
+    }
+    .carousel:not(.active){
+        animation: fadeOut 2s forwards;
+    }
+    .final-message {
+        font-size: 3rem;
+        color: red;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        opacity: 0;
+        animation: fadeIn 2s forwards, bloodDrip 3s ease-in-out infinite;
+    }
+    .final-message::before, .final-message::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 20px;
+        background-color: red;
+        animation: drip 1.5s ease-in-out infinite;
+        opacity: 0;
+      }
+      
+      .final-message::before {
+        left: 20%;
+        animation-delay: 0.5s;
+        bottom: 1.3em;
+      }
+      
+      .final-message::after {
+        left: 50%;
+        animation-delay: 1s;
+        bottom: .3em;
+      }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        background-color: black;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+@keyframes typewriter {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 90%;
+        opacity: 1;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {border-color: transparent;}
+    50% {border-color: white;}
+}
+
+@keyframes drip {
+    0% {
+      height: 0;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    50% {
+      height: 20px;
+      opacity: 1;
+      transform: translateY(10px);
+    }
+    100% {
+      height: 0;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+  
+  @keyframes bloodDrip {
+    0%, 100% {
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+      text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.7);
+    }
+  }

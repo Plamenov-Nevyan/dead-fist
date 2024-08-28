@@ -118,7 +118,7 @@ export function CharacterCreator(){
                 throw dataChar.message
             }
             modalClose()
-            console.log(dataChar)
+            navigate('/intro')
         }catch(err){
             return setNewError(err)
         }
