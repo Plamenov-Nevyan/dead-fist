@@ -22,6 +22,27 @@
   width: 100%;
   text-align: center;
 }
+.char-creator-section .slider-container .error-h4 {
+  color: red;
+  background-color: black;
+  padding: 0.3em;
+  border-radius: 0.2em;
+  display: flex;
+}
+.char-creator-section .slider-container .error-h4 .close-error {
+  cursor: pointer;
+  margin-left: auto;
+  transition: ease-in-out 200ms;
+  padding: 0.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.char-creator-section .slider-container .error-h4 .close-error:hover {
+  background-color: red;
+  color: black;
+  border-radius: 50%;
+}
 .char-creator-section .skills-selector-container {
   flex: 0 1 45%;
   padding: 1rem;

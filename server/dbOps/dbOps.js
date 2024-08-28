@@ -44,6 +44,18 @@ exports.retrieveUser = async (email, password, client) => {
     }
 }
 
+exports.editCharCreation = async (userId, client) => {
+    try {
+        const query = {
+            text: 'UPDATE users SET has_created_character = true WHERE id = $1',
+            values: [userId]
+        }
+        const res = await client.query(query)
+    }catch(err){
+        throw err
+    }
+}
+
 exports.emailExists = async (email, client) => {
     try {
         const data = await client.query("SELECT * FROM users WHERE email=$1", [

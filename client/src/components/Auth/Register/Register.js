@@ -77,7 +77,12 @@ export function Register(){
             return
           }
           try {
-            let resp = await registerUser(registerFormVals)
+            let resp = await registerUser({
+              username: registerFormVals.username,
+              email: registerFormVals.email,
+              password: registerFormVals.password,
+              c_password: registerFormVals.c_password
+            })
             if(!resp.ok){
               let err = await resp.json()
               return setNewError(err.error[0])

@@ -16,3 +16,25 @@ exports.retrieveAvatars = async (client) => {
         throw err
     }
 }
+
+exports.insertCharacter = async (characterData, client) => {
+    try {
+        const query = {
+            text: 'INSERT INTO characters(user_id, avatar_id, gender, class, skills, bio) VALUES($1, $2, $3, $4, $5, $6) RETURNING id',
+            values: [
+                characterData.user_id, 
+                characterData.avatar_id, 
+                characterData.gender, 
+                characterData.class, 
+                characterData.skills, 
+                characterData.bio
+            ]
+        }
+        
+        const result  = await client.query(query)
+        console.log('Character inserted:', result.rows[0] )
+        return result.rows[0]
+    }catch(err){
+        throw err
+    }
+}

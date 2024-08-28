@@ -2,7 +2,8 @@ const {
     insertUser,
     retrieveUser,
     emailExists,
-    usernameExists
+    usernameExists,
+    editCharCreation
 } = require("../dbOps/dbOps.js")
 const {client} = require('../config/db.js')
 
@@ -29,6 +30,14 @@ exports.loginUser = async (userData) => {
     try {
         let user = await retrieveUser(userData.email, userData.password, client)
         return user
+    }catch(err){
+        throw err
+    }
+}
+
+exports.confirmCharCreated = async(userId) => {
+    try {
+        await editCharCreation(userId, client)
     }catch(err){
         throw err
     }

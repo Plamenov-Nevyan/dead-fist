@@ -15,11 +15,32 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        max-width: 50%;
         .choose-avatar-heading {
             width: 100%;
             text-align: center;
         }
-        max-width: 50%;
+        .error-h4 {
+            color: red;
+            background-color: black;
+            padding: .3em;
+            border-radius: .2em;
+            display: flex;
+            .close-error {
+                cursor: pointer;
+                margin-left: auto;
+                transition: ease-in-out 200ms;
+                padding: .2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .close-error:hover{
+                background-color: red;
+                color: black;
+                border-radius: 50%;
+            }
+        }
     }
     .skills-selector-container{
         flex: 0 1 45%;

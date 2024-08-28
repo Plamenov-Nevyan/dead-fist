@@ -2,6 +2,7 @@ import styles from "./css/userMenu.module.css"
 import { getSessionInfo, logOut } from "../../../services/authServices"
 import {useEffect, useState, useContext} from "react"
 import { notificationsContext } from "../../../contexts/NotificationsContext"
+import { authContext } from "../../../contexts/authContext"
 import {ErrorNotification} from "../../Notifications/ErrorNotification/ErrorNotification"
 import { useNotifications } from "../../../hooks/useNotifications"
 import {useNavigate} from "react-router-dom"
@@ -10,6 +11,7 @@ export function UserMenu(){
     const [profilePic, setProfilePic] = useState('')
     const [showOptions, setShowOptions] = useState(false)
     const { error } = useContext(notificationsContext);
+    const {setIsAuth} = useContext(authContext)
     const { setNewError } = useNotifications();
     const navigate  = useNavigate()
 
@@ -41,6 +43,7 @@ export function UserMenu(){
             if(!resp.ok){
                return setNewError(data.message)
             }
+            setIsAuth(false)
             navigate('/')
         }catch(err){
             setNewError(err.message)

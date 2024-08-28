@@ -3,6 +3,8 @@ import styles from './css/skillsSelector.module.css'
  import {SkillContainer} from './SkillContainer'
 
 export function SkillsSelector({
+    pointsError,
+    clearPointsError,
     remainingSkillPoints,
     setRemainingSkillPoints,
     characterStats,
@@ -14,6 +16,7 @@ export function SkillsSelector({
 
     
     const changeSkillPoints = (operation, skillName) => {
+        if(pointsError)(clearPointsError())
         if(operation === 'decreaseRemPoints'){
             setRemainingSkillPoints(currValue => currValue - 1)
             setSkillValues(currValues => {
@@ -39,10 +42,6 @@ export function SkillsSelector({
     return (
         <>
         <h2 className={styles['assign-heading']}>Assign skills and character information</h2>
-        <div className={styles['character-name']}>
-            <label className={styles['name-label']} htmlFor='name'>Write your character's name</label>
-            <input onChange={(e) => onCharacterStatsChange(e)} type='text' id='name' name='name' className={styles['name-input']} value={characterStats.name}/>
-        </div>
         <div className={styles['character-gender']}>
             <h3 className={styles['gender-heading']}> Choose your character's gender</h3>
             <div className={styles['gender-options']}>
@@ -72,6 +71,7 @@ export function SkillsSelector({
                 <h3 className={styles['descr-heading']}>Choose your character's skills</h3>
                 <h4 className={styles['remaining-heading']}>Remaining points: {remainingSkillPoints}</h4>
             </div>
+            {pointsError && <h4 className={styles['points-error']}>Please assign all of your skill points!</h4>}
             <SkillContainer 
                 skillName={'Strength'} 
                 remainingSkillPoints={remainingSkillPoints} 
