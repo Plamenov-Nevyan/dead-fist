@@ -8,6 +8,7 @@ import {NotificationsProvider} from "./contexts/NotificationsContext";
 import {RouteInterceptor} from "./components/common/RouteInterceptor";
 import {AuthProvider} from "./contexts/authContext";
 import {IntroScene} from "./components/IntroScene/IntroScene";
+import {Main} from "./components/Main/Main";
 
 function App() {
   const location = useLocation()
@@ -22,6 +23,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/create-character" element={<CharacterCreator />} />
             <Route path="/intro" element={<IntroScene />} />
+            <Route path="/main" element={<Main />} />
           </Route>
         </Routes>
       </NotificationsProvider>

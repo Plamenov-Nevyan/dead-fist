@@ -1,0 +1,134 @@
+.inventory {
+    flex: 0 1 55%;
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+    align-items: center;
+    .equipped {
+        width: 80%;
+        flex: 0 1 65%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5em;
+        padding: .4em;
+        .droppable {
+            transition: background-color 0.3s;
+        }
+        .head-slot {
+            background-image: url('../../../../../assets/helmet-slot-bg.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: rgba(124, 66, 11, 168);
+            border: 2px solid rgb(202, 116, 4);
+            width: 78px;
+            flex: 0 1 30%;
+        }
+        .middle-slots {
+            width: 100%;
+            display: flex;
+            flex: 0 1 30%;
+            justify-content: space-around;
+            align-items: center;
+            .droppable {
+                transition: background-color 0.3s;
+            }
+            .prim-weapon-slot {
+                background-image: url('../../../../../assets/prim-weapon-slot-bg.png');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-color: rgba(124, 66, 11, 168);
+                border: 2px solid rgb(202, 116, 4);
+                flex: 0 1 20%;
+                height: 100%;
+            }
+            .torso-slot {
+                background-image: url('../../../../../assets/torso-slot-bg.png');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-color: rgba(124, 66, 11, 168);
+                border: 2px solid rgb(202, 116, 4);
+                flex: 0 1 20%;
+                height: 100%;
+            }
+            .sec-weapon-slot {
+                background-image: url('../../../../../assets/sec-weapon-slot-bg.png');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-color: rgba(124, 66, 11, 168);
+                border: 2px solid rgb(202, 116, 4);
+                flex: 0 1 20%;
+                height: 100%;
+            }
+        }
+        .legs-slot {
+            background-image: url('../../../../../assets/legs-slot-bg.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: rgba(124, 66, 11, 168);
+            border: 2px solid rgb(202, 116, 4);
+            width: 78px;
+            flex: 0 1 30%;
+        }
+    }
+    .unequipped-and-stats {
+        width: 100%;
+        display: flex;
+        gap: .4em;
+        .unequipped {
+            background-image: url('../../../../../assets/inventory-carousel-bg.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            max-width: 40%;
+            flex: 0 1 50%;
+            max-height: 100%;
+            .item-img {
+                max-width: 100%;
+                display: block;
+                height: 100%;
+                cursor: pointer;
+            }
+        }
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 0 1 60%;
+            height: 100%;
+            background-image: url('../../../../../assets/stats-bg.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            justify-content: center;
+            .skill-points {
+                flex: 0 1 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+            .skill-container {
+                flex: 0 1 45%;
+                .skill-name {
+                    display: flex;
+                    gap: .2em;
+                    color: white;
+                    .increase-skill-btn {
+                        fill: white;
+                        max-width: .7em;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.swiper-disabled {
+    pointer-events: none;
+}

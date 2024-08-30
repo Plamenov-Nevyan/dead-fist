@@ -2,9 +2,8 @@
   background-color: #000000;
   background-image: linear-gradient(315deg, #000000 0%, #5e5368 74%);
   max-height: 24vh;
-  height: 24vh;
   display: flex;
-  padding: 0.6rem;
+  padding: 1.6rem;
   position: relative;
   align-items: center;
 }

@@ -27,16 +27,16 @@ export function Header(){
         <>
        { currentScreenWidth >= 768
         ?   <header className={styles['site-header']}>
-                <div className={styles['logo-container']}>
+                {/* <div className={styles['logo-container']}>
                     <img src={logoImg} className={styles.logo}/>
-                </div>
+                </div> */}
                 <Navbar isInResponsive={currentScreenWidth <= 768}/>
                 {isAuth && <UserMenu />}
             </header>
         : <header className={styles['site-header-mob']}>
-              <div className={styles['logo-container']}>
+              {/* <div className={styles['logo-container']}>
                 <img src={logoImg} className={styles.logo}/>
-             </div>
+             </div> */}
              {showNav &&  <div className={styles['nav-dropdown']}>
                 <Navbar isInResponsive={currentScreenWidth <= 768}/>
              </div>

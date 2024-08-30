@@ -1,0 +1,70 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../../assets/overview-bg.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3em;
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        padding: .5em;
+        width: 100%;
+        height: 80%;    
+        background-image: url('../../../assets/main-content-bg.png');
+        background-position: center;
+        background-size: cover;
+        .sidebar-content {
+            // background-image: url('../../../assets/sidebar-bg.png');
+            // background-position: center;
+            // background-size: cover;
+            position: relative;
+            flex: 0 1 30%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            .sidebar-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+            .sidebar-options {
+                position: relative;
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                padding: .5em;
+                flex: 0 1 75%;
+                .option {
+                    font-weight: bold;
+                    text-align: center;
+                    transition: ease-in-out 200ms;
+                    cursor: pointer;
+                }
+                .option-active {
+                    font-weight: bold;
+                    text-align: center;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                .option:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .option-content {
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: .5);
+            flex: 0 1 65%;
+        }
+    }
+}

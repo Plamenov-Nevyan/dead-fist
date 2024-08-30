@@ -1,0 +1,9 @@
+.overview {
+  width: 100%;
+  height: 100%;
+}
+.overview .inventory-content {
+  display: flex;
+  height: 100%;
+  padding: 0.5em;
+}/*# sourceMappingURL=overview.module.css.map */

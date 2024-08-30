@@ -1,0 +1,134 @@
+.inventory {
+  flex: 0 1 55%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  align-items: center;
+}
+.inventory .equipped {
+  width: 80%;
+  flex: 0 1 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4em;
+}
+.inventory .equipped .droppable {
+  transition: background-color 0.3s;
+}
+.inventory .equipped .head-slot {
+  background-image: url("../../../../../assets/helmet-slot-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(124, 66, 11);
+  border: 2px solid rgb(202, 116, 4);
+  width: 78px;
+  flex: 0 1 30%;
+}
+.inventory .equipped .middle-slots {
+  width: 100%;
+  display: flex;
+  flex: 0 1 30%;
+  justify-content: space-around;
+  align-items: center;
+}
+.inventory .equipped .middle-slots .droppable {
+  transition: background-color 0.3s;
+}
+.inventory .equipped .middle-slots .prim-weapon-slot {
+  background-image: url("../../../../../assets/prim-weapon-slot-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(124, 66, 11);
+  border: 2px solid rgb(202, 116, 4);
+  flex: 0 1 20%;
+  height: 100%;
+}
+.inventory .equipped .middle-slots .torso-slot {
+  background-image: url("../../../../../assets/torso-slot-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(124, 66, 11);
+  border: 2px solid rgb(202, 116, 4);
+  flex: 0 1 20%;
+  height: 100%;
+}
+.inventory .equipped .middle-slots .sec-weapon-slot {
+  background-image: url("../../../../../assets/sec-weapon-slot-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(124, 66, 11);
+  border: 2px solid rgb(202, 116, 4);
+  flex: 0 1 20%;
+  height: 100%;
+}
+.inventory .equipped .legs-slot {
+  background-image: url("../../../../../assets/legs-slot-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgb(124, 66, 11);
+  border: 2px solid rgb(202, 116, 4);
+  width: 78px;
+  flex: 0 1 30%;
+}
+.inventory .unequipped-and-stats {
+  width: 100%;
+  display: flex;
+  gap: 0.4em;
+}
+.inventory .unequipped-and-stats .unequipped {
+  background-image: url("../../../../../assets/inventory-carousel-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 40%;
+  flex: 0 1 50%;
+  max-height: 100%;
+}
+.inventory .unequipped-and-stats .unequipped .item-img {
+  max-width: 100%;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+.inventory .unequipped-and-stats .stats {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 1 60%;
+  height: 100%;
+  background-image: url("../../../../../assets/stats-bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+.inventory .unequipped-and-stats .stats .skill-points {
+  flex: 0 1 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.inventory .unequipped-and-stats .stats .skill-container {
+  flex: 0 1 45%;
+}
+.inventory .unequipped-and-stats .stats .skill-container .skill-name {
+  display: flex;
+  gap: 0.2em;
+  color: white;
+}
+.inventory .unequipped-and-stats .stats .skill-container .skill-name .increase-skill-btn {
+  fill: white;
+  max-width: 0.7em;
+  cursor: pointer;
+}
+
+.swiper-disabled {
+  pointer-events: none;
+}/*# sourceMappingURL=inventory.module.css.map */
