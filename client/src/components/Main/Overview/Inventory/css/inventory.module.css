@@ -17,6 +17,9 @@
 }
 .inventory .equipped .droppable {
   transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .inventory .equipped .droppable img {
   max-width: 100%;
@@ -35,7 +38,7 @@
   border: 2px solid rgb(202, 116, 4);
   width: 108px;
   flex: 0 1 20%;
-  background-color: #e0e0e0;
+  background-color: rgb(255, 156, 25);
 }
 .inventory .equipped .middle-slots {
   width: 100%;
@@ -60,7 +63,7 @@
 .inventory .equipped .middle-slots .prim-weapon-slot-equipped {
   flex: 0 1 20%;
   height: 67%;
-  background-color: #e0e0e0;
+  background-color: rgb(255, 156, 25);
 }
 .inventory .equipped .middle-slots .torso-slot {
   background-image: url("../../../../../assets/torso-slot-bg.png");
@@ -76,7 +79,7 @@
   border: 2px solid rgb(202, 116, 4);
   flex: 0 1 20%;
   height: 67%;
-  background-color: #e0e0e0;
+  background-color: rgb(255, 156, 25);
 }
 .inventory .equipped .middle-slots .sec-weapon-slot {
   background-image: url("../../../../../assets/sec-weapon-slot-bg.png");
@@ -92,7 +95,7 @@
   border: 2px solid rgb(202, 116, 4);
   flex: 0 1 20%;
   height: 67%;
-  background-color: #e0e0e0;
+  background-color: rgb(255, 156, 25);
 }
 .inventory .equipped .legs-slot {
   background-image: url("../../../../../assets/legs-slot-bg.png");
@@ -108,7 +111,7 @@
   border: 2px solid rgb(202, 116, 4);
   width: 108px;
   flex: 0 1 20%;
-  background-color: #e0e0e0;
+  background-color: rgb(255, 156, 25);
 }
 .inventory .unequipped-and-stats {
   width: 100%;

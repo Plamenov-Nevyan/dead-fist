@@ -62,13 +62,12 @@ export function Inventory(){
         });
     
         const style = {
-            transform: isDragging ? `translate3d(${transform?.x}px, ${transform?.y}px, 0)` : 'none',
+            transform: `translate3d(${transform?.x}px, ${transform?.y}px, 0)`,
             zIndex: isDragging ? 1000 : 'auto',
-            position: isDragging ? 'absolute' : 'relative',
+            position: 'relative',
             cursor: 'grab',
             opacity: isDragging ? 0 : 1, 
         };
-    
         return (
             <div ref={setNodeRef} style={style} {...listeners} {...attributes} className={styles.draggable}>
                 {children}
@@ -80,11 +79,9 @@ export function Inventory(){
         const { isOver, setNodeRef } = useDroppable({
             id,
         });
-    
         const style = {
             backgroundColor: isOver && '#e0e0e0'
         };
-    
         return (
             <div ref={setNodeRef} style={style} className={`${styles['droppable']} ${className}`}>
                 {children}

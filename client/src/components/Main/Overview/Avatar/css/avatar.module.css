@@ -28,7 +28,8 @@
 }
 .avatar-content .modifiers {
   flex: 0 1 50%;
-  width: 100%;
+  width: 80%;
+  margin-right: auto;
   background-image: url("../../../../../assets/modifiers-bg.png");
   background-position: center;
   background-size: contain;
@@ -38,7 +39,9 @@
 }
 .avatar-content .modifiers .modifiers-text {
   position: relative;
+  overflow: hidden;
   flex: 0 1 80%;
+  padding: 0.3em;
 }
 .avatar-content .modifiers .modifiers-text .text-bg {
   position: absolute;
@@ -46,6 +49,23 @@
   top: 0;
   width: 100%;
   height: 100%;
+}
+.avatar-content .modifiers .modifiers-text .scrollable-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.avatar-content .modifiers .modifiers-text .scrollable-text::-webkit-scrollbar {
+  display: none;
 }
 .avatar-content .modifiers .modifiers-btns {
   background-image: url("../../../../../assets/modifiers-btns.png");
@@ -62,6 +82,18 @@
   background-size: contain;
   background-repeat: no-repeat;
   flex: 0 1 32%;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+  display: flex;
+  justify-content: center;
+}
+.avatar-content .modifiers .modifiers-btns .scroll-left .overlay {
+  width: 75%;
+  height: 100%;
+}
+.avatar-content .modifiers .modifiers-btns .scroll-left:hover .overlay {
+  background-color: rgba(242, 154, 40, 0.3);
+  border-radius: 2em 0.6em 0.6em 2em;
 }
 .avatar-content .modifiers .modifiers-btns .middle-scroll-btns {
   display: flex;
@@ -74,6 +106,12 @@
   background-size: contain;
   background-repeat: no-repeat;
   flex: 0 1 50%;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+.avatar-content .modifiers .modifiers-btns .middle-scroll-btns .scroll-up .overlay {
+  width: 100%;
+  height: 100%;
 }
 .avatar-content .modifiers .modifiers-btns .middle-scroll-btns .scroll-down {
   background-image: url("../../../../../assets/modifier-scroll-down.png");
@@ -81,6 +119,20 @@
   background-size: contain;
   background-repeat: no-repeat;
   flex: 0 1 50%;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+.avatar-content .modifiers .modifiers-btns .middle-scroll-btns .scroll-down .overlay {
+  width: 100%;
+  height: 100%;
+}
+.avatar-content .modifiers .modifiers-btns .middle-scroll-btns .scroll-up:hover .overlay {
+  background-color: rgba(242, 154, 40, 0.3);
+  border-radius: 0 0 0.6em 0.6em;
+}
+.avatar-content .modifiers .modifiers-btns .middle-scroll-btns .scroll-down:hover .overlay {
+  background-color: rgba(242, 154, 40, 0.3);
+  border-radius: 0.6em 0.6em 0 0;
 }
 .avatar-content .modifiers .modifiers-btns .scroll-right {
   background-image: url("../../../../../assets/modifier-scroll-right.png");
@@ -88,4 +140,16 @@
   background-size: contain;
   background-repeat: no-repeat;
   flex: 0 1 32%;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+  display: flex;
+  justify-content: center;
+}
+.avatar-content .modifiers .modifiers-btns .scroll-right .overlay {
+  width: 75%;
+  height: 100%;
+}
+.avatar-content .modifiers .modifiers-btns .scroll-right:hover .overlay {
+  background-color: rgba(242, 154, 40, 0.3);
+  border-radius: 0.6em 2em 2em 0.6em;
 }/*# sourceMappingURL=avatar.module.css.map */
