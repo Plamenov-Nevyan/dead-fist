@@ -27,7 +27,8 @@
   flex: 0 1 30%;
   height: 80%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .main .content .sidebar-content .sidebar-bg {
   position: absolute;
@@ -43,7 +44,7 @@
   flex-direction: column;
   gap: 1em;
   padding: 0.5em;
-  flex: 0 1 75%;
+  flex: 0 1 35%;
 }
 .main .content .sidebar-content .sidebar-options .option {
   font-weight: bold;
@@ -59,6 +60,65 @@
 }
 .main .content .sidebar-content .sidebar-options .option:hover {
   text-decoration: underline;
+}
+.main .content .sidebar-content .sidebar-submenu {
+  flex: 0 1 70%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 75%;
+  margin-left: 0.8em;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options {
+  max-height: 20%;
+  display: flex;
+  justify-content: center;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .camp-option, .main .content .sidebar-content .sidebar-submenu .sb-submenu-options .camp-option-active {
+  flex: 0 1 50%;
+  justify-content: center;
+  display: flex;
+  background-color: rgb(136, 115, 92);
+  border: 4px solid rgb(89, 77, 65);
+  border-bottom: none;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .camp-option .camp-opt-bg, .main .content .sidebar-content .sidebar-submenu .sb-submenu-options .camp-option-active .camp-opt-bg {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .camp-option:hover {
+  opacity: 0.7;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .camp-option-active {
+  opacity: 1;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .map-option, .main .content .sidebar-content .sidebar-submenu .sb-submenu-options .map-option-active {
+  flex: 0 1 50%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(136, 115, 92);
+  border: 4px solid rgb(89, 77, 65);
+  border-bottom: none;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .map-option .map-opt-bg, .main .content .sidebar-content .sidebar-submenu .sb-submenu-options .map-option-active .map-opt-bg {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .map-option:hover {
+  opacity: 0.7;
+}
+.main .content .sidebar-content .sidebar-submenu .sb-submenu-options .map-option-active {
+  opacity: 1;
 }
 .main .content .option-content {
   height: 100%;

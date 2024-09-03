@@ -1,0 +1,36 @@
+.options-container {
+  display: flex;
+  justify-content: center;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  width: 100%;
+}
+.options-container .options-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+  padding: 0.5em;
+  background-color: rgb(136, 115, 92);
+}
+.options-container .options-list .option, .options-container .options-list .option-active {
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+  padding: 0.2em;
+  border-radius: 0.3em;
+  font-weight: bold;
+}
+.options-container .options-list .option:hover, .options-container .options-list .option-active {
+  background-color: rgb(179, 150, 120);
+}
+.options-container .camp-options .option, .options-container .camp-options .option-active {
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+}
+.options-container .map-options .option, .options-container .map-options .option-active {
+  display: flex;
+  justify-content: start;
+  font-size: 1em;
+}/*# sourceMappingURL=sidebarSubmenu.module.css.map */
