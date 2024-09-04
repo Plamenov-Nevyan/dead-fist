@@ -1,7 +1,7 @@
 import styles from './css/mapTooltip.module.css'
 
 
-export function MapTooltip({thumnail, text,locationName, foundableItems, locationDangerLevel}){
+export function MapTooltip({thumbnail, text,locationName, foundableItems, locationDangerLevel}){
 
     return (
         <div className={
@@ -13,7 +13,7 @@ export function MapTooltip({thumnail, text,locationName, foundableItems, locatio
             }
         >
             <div className={styles['thumbnail-container']}>
-                <img src={thumnail} className={styles['thumbnail']} />
+                <img src={thumbnail} className={styles['thumbnail']} />
             </div>
             <div className={styles['text-container']}>
                 <h3 className={styles.heading}>{locationName}</h3>

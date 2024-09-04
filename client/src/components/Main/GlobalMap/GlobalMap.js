@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react'
-import globalMapImg from '../../../assets/map.png'
+// import globalMapImg from '../../../assets/map.png'
 import styles from './css/globalMap.module.css'
 import {MapTooltip} from '../../Tooltips/MapTooltip'
-import cityTooltipImg from '../../../assets/city-tooltip-bg.jpg'
-import quarantineZoneTooltipImg from '../../../assets/quarantine-zone-tooltip-bg.jpg'
-import townshipTooltipImg from '../../../assets/township-tooltip-bg.jpg'
-import riverTooltipImg from '../../../assets/river-tooltip-bg.png'
-import militaryBaseTooltipImg from '../../../assets/military-base-tooltip-bg.jpg'
-import mountainTooltipImg from '../../../assets/mountain-tooltip-bg.png'
-import woodTooltipImg from '../../../assets/wood-tooltip-bg.png'
+// import cityTooltipImg from '../../../assets/city-tooltip-bg.jpg'
+// import quarantineZoneTooltipImg from '../../../assets/quarantine-zone-tooltip-bg.jpg'
+// import townshipTooltipImg from '../../../assets/township-tooltip-bg.jpg'
+// import riverTooltipImg from '../../../assets/river-tooltip-bg.png'
+// import militaryBaseTooltipImg from '../../../assets/military-base-tooltip-bg.jpg'
+// import mountainTooltipImg from '../../../assets/mountain-tooltip-bg.png'
+// import woodTooltipImg from '../../../assets/wood-tooltip-bg.png'
 
 export function GlobalMap({hoveredSubmenuOption}){
     const [showOverlay, setShowOverlay] = useState(hoveredSubmenuOption ? hoveredSubmenuOption : '')
@@ -30,7 +30,7 @@ export function GlobalMap({hoveredSubmenuOption}){
 
     return(
         <div className={styles['map-container']}>
-            <img src={globalMapImg} className={styles.map} />
+            <img src="https://i.imgur.com/oUfIsNq.jpg" className={styles.map} />
             <div 
                 onMouseOver={(e) => onSetOverlayVisibility(e)} 
                 onMouseLeave={() => onSetOverlayVisibility()}
@@ -40,7 +40,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'city' &&
                     <div className={styles['tooltip']}>
                         <MapTooltip 
-                            thumnail={cityTooltipImg}  
+                            thumbnail={"https://i.imgur.com/MX6ywYa.jpg"}  
                             text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                             locationName={'Alberra City'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
@@ -58,7 +58,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'mountain' && 
                     <div className={styles['tooltip']}>
                         <MapTooltip 
-                            thumnail={mountainTooltipImg}  
+                            thumbnail={"https://i.imgur.com/HIXMku5.png"}  
                             text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                             locationName={'Granton Mountains'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
@@ -76,7 +76,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'river' && 
                          <div className={styles['tooltip']}>
                             <MapTooltip 
-                                thumnail={riverTooltipImg}  
+                                thumbnail={"https://i.imgur.com/SXBN26F.png"}  
                                 text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                                 locationName={'Sagell River'}
                                 foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
@@ -94,7 +94,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'quarantine-zone' && 
                          <div className={styles['tooltip']}>
                             <MapTooltip 
-                                thumnail={quarantineZoneTooltipImg}  
+                                thumbnail={"https://i.imgur.com/DagipHp.jpg"}  
                                 text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                                 locationName={'Ruined Quarantine Zone'}
                                 foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
@@ -112,7 +112,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'woods' && 
                      <div className={styles['tooltip']}>
                         <MapTooltip 
-                            thumnail={woodTooltipImg}  
+                            thumbnail={"https://i.imgur.com/uMFPRLO.png"}  
                             text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                             locationName={'Ascadia Woods'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
@@ -130,7 +130,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'township' && 
                    <div className={styles['tooltip']}>
                         <MapTooltip 
-                            thumnail={townshipTooltipImg}  
+                            thumbnail={"https://i.imgur.com/HxyYSqa.jpg"}  
                             text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                             locationName={'St. Ivy Township'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
@@ -148,7 +148,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                 {showOverlay === 'military-base' &&
                       <div className={styles['tooltip']}>
                         <MapTooltip 
-                            thumnail={militaryBaseTooltipImg}  
+                            thumbnail={"https://i.imgur.com/QzXXSLM.jpg"}  
                             text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
                             locationName={'Reynolds Military Base'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}

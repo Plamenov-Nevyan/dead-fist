@@ -5,15 +5,21 @@ import {getIntroImages} from '../../services/characterServices'
 import { useNotifications } from '../../hooks/useNotifications'
 import { notificationsContext } from '../../contexts/NotificationsContext'
 import { ErrorNotification } from '../Notifications/ErrorNotification/ErrorNotification'
-import intro1 from '../../assets/intro1.jpg'
-import intro2 from '../../assets/intro2.jpg'
-import intro3 from '../../assets/intro3.jpg'
-import intro4 from '../../assets/intro4.jpg'
-import intro5 from '../../assets/intro5.jpg'
+// import intro1 from '../../assets/intro1.jpg'
+// import intro2 from '../../assets/intro2.jpg'
+// import intro3 from '../../assets/intro3.jpg'
+// import intro4 from '../../assets/intro4.jpg'
+// import intro5 from '../../assets/intro5.jpg'
 import introTexts from '../../assets/introTexts.json'
 
 export function IntroScene({interval = 18000}){
-const [images, setImages] = useState([intro1, intro2, intro3, intro4, intro5])
+const [images, setImages] = useState([
+    "https://i.imgur.com/SzzbMDp.jpg", 
+    "https://i.imgur.com/YLW6Dc5.jpg",
+     "https://i.imgur.com/o20sB1y.jpg", 
+     "https://i.imgur.com/IkeSsCY.jpg", 
+     "https://i.imgur.com/SVRmdmZ.jpg"
+])
 const [texts, setTexts] = useState([...introTexts])
 const [imageIndex, setImageIndex] = useState(0)
 const [isFading, setIsFading] = useState(false)

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import styles from './css/avatar.module.css'
-import pagerTextBg from "../../../../assets/modifiers-text.png"
+// import pagerTextBg from "../../../../assets/modifiers-text.png"
 
 export function Avatar(){
     const scrollContainerRef = useRef(null);
@@ -36,7 +36,7 @@ export function Avatar(){
             </div>
             <div className={styles['modifiers']}>
                 <div className={styles['modifiers-text']}>
-                    <img src={pagerTextBg} className={styles['text-bg']} />
+                    <img src="https://i.imgur.com/pLDhgDC.png" className={styles['text-bg']} />
                     <div ref={scrollContainerRef} className={styles['scrollable-text']}>
                         <p>Pamparampanpamparammm</p>
                         <p>Pamparampanpamparammm</p>

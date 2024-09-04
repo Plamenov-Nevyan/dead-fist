@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styles from "./css/main.module.css";
 import { Overview } from "./Overview/Overview";
-import sidebarBg from "../../assets/sidebar-bg.png";
+// import sidebarBg from "../../assets/sidebar-bg.png";
 import { SidebarSubmenu } from "./SidebarSubmenu/SidebarSubmenu";
-import campOptBg from "../../assets/camp-option-bg.png";
-import mapOptBg from "../../assets/map-option-bg.png";
+// import campOptBg from "../../assets/camp-option-bg.png";
+// import mapOptBg from "../../assets/map-option-bg.png";
 import { GlobalMap } from "./GlobalMap/GlobalMap";
 
 export function Main() {
@@ -37,7 +37,7 @@ export function Main() {
     <main className={styles.main}>
       <section className={styles.content}>
         <div className={styles["sidebar-content"]}>
-          <img src={sidebarBg} className={styles["sidebar-bg"]} />
+          <img src="https://i.imgur.com/jqGRjO0.png" className={styles["sidebar-bg"]} />
           <ul className={styles["sidebar-options"]}>
             <li
               className={
@@ -74,7 +74,7 @@ export function Main() {
                     : styles["camp-option"]
                 }
               >
-                <img src={campOptBg} className={styles["camp-opt-bg"]} />
+                <img src="https://i.imgur.com/uxLCnl9.png" className={styles["camp-opt-bg"]} />
               </div>
               <div
                 onMouseOver={(e) => onSetCampOrMapMenu(e)}
@@ -86,7 +86,7 @@ export function Main() {
                     : styles["map-option"]
                 }
               >
-                <img src={mapOptBg} className={styles["map-opt-bg"]} />
+                <img src="https://i.imgur.com/HPYklxy.png" className={styles["map-opt-bg"]} />
               </div>
             </div>
             <SidebarSubmenu

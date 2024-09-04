@@ -25,7 +25,7 @@
   max-width: 100%;
 }
 .inventory .equipped .head-slot {
-  background-image: url("../../../../../assets/helmet-slot-bg.png");
+  background-image: url("https://i.imgur.com/COgLsp8.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -98,7 +98,7 @@
   background-color: rgb(255, 156, 25);
 }
 .inventory .equipped .legs-slot {
-  background-image: url("../../../../../assets/legs-slot-bg.png");
+  background-image: url("https://i.imgur.com/eHwgJhH.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -120,7 +120,7 @@
   flex: 0 1 35%;
 }
 .inventory .unequipped-and-stats .unequipped {
-  background-image: url("../../../../../assets/inventory-carousel-bg.png");
+  background-image: url("https://i.imgur.com/Fxnreko.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
