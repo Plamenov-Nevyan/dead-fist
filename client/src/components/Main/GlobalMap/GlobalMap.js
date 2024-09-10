@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 // import globalMapImg from '../../../assets/map.png'
 import styles from './css/globalMap.module.css'
 import {MapTooltip} from '../../Tooltips/MapTooltip'
+import tooltipTexts from '../../../assets/mapTooltipTexts.json'
 // import cityTooltipImg from '../../../assets/city-tooltip-bg.jpg'
 // import quarantineZoneTooltipImg from '../../../assets/quarantine-zone-tooltip-bg.jpg'
 // import townshipTooltipImg from '../../../assets/township-tooltip-bg.jpg'
@@ -41,7 +42,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                     <div className={styles['tooltip']}>
                         <MapTooltip 
                             thumbnail={"https://i.imgur.com/MX6ywYa.jpg"}  
-                            text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                            text={tooltipTexts.city}
                             locationName={'Alberra City'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                             locationDangerLevel={'Hard'}
@@ -59,7 +60,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                     <div className={styles['tooltip']}>
                         <MapTooltip 
                             thumbnail={"https://i.imgur.com/HIXMku5.png"}  
-                            text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                            text={tooltipTexts.mountain}
                             locationName={'Granton Mountains'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                             locationDangerLevel={'Easy'}
@@ -77,7 +78,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                          <div className={styles['tooltip']}>
                             <MapTooltip 
                                 thumbnail={"https://i.imgur.com/SXBN26F.png"}  
-                                text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                                text={tooltipTexts.river}
                                 locationName={'Sagell River'}
                                 foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                                 locationDangerLevel={'Easy'}
@@ -95,7 +96,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                          <div className={styles['tooltip']}>
                             <MapTooltip 
                                 thumbnail={"https://i.imgur.com/DagipHp.jpg"}  
-                                text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                                text={tooltipTexts.quarantineZone}
                                 locationName={'Ruined Quarantine Zone'}
                                 foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                                 locationDangerLevel={'Hard'}
@@ -113,7 +114,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                      <div className={styles['tooltip']}>
                         <MapTooltip 
                             thumbnail={"https://i.imgur.com/uMFPRLO.png"}  
-                            text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                            text={tooltipTexts.woods}
                             locationName={'Ascadia Woods'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                             locationDangerLevel={'Normal'}
@@ -131,7 +132,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                    <div className={styles['tooltip']}>
                         <MapTooltip 
                             thumbnail={"https://i.imgur.com/HxyYSqa.jpg"}  
-                            text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                            text={tooltipTexts.township}
                             locationName={'St. Ivy Township'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                             locationDangerLevel={'Normal'}
@@ -149,7 +150,7 @@ export function GlobalMap({hoveredSubmenuOption}){
                       <div className={styles['tooltip']}>
                         <MapTooltip 
                             thumbnail={"https://i.imgur.com/QzXXSLM.jpg"}  
-                            text={'asadbasdahsbdjashdbjahsbdjhasbdjahsdbasjhdbjashbdjhasbd'}
+                            text={tooltipTexts.militaryBase}
                             locationName={'Reynolds Military Base'}
                             foundableItems={['Guns',  'Armor', 'Food', 'Ammo']}
                             locationDangerLevel={'Extreme'}
