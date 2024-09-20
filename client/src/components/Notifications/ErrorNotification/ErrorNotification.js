@@ -6,23 +6,27 @@ import styles from "./errorNotification.module.css";
 export function ErrorNotification() {
   const { removeError } = useNotifications();
   const { error } = useContext(notificationsContext);
-  const [isSticky, setIsSticky] = useState(false)
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-        const scrollY = window.scrollY || window.pageYOffset
-        setIsSticky(scrollY > 100)
-    }
+      const scrollY = window.scrollY || window.pageYOffset;
+      setIsSticky(scrollY > 100);
+    };
 
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener("scroll", onScroll);
 
     return () => {
-        window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
-    <div className={`${styles["error-notification"]} ${isSticky ? styles['error-notification-sticky'] : ''}`}>
+    <div
+      className={`${styles["error-notification"]} ${
+        isSticky ? styles["error-notification-sticky"] : ""
+      }`}
+    >
       <p className={styles.message}>{error}</p>
       <button onClick={() => removeError()} className={styles.dismiss}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

@@ -1,12 +1,14 @@
 import styles from "../css/login.module.css";
 import { useState, useContext } from "react";
-import {loginUser} from "../../../services/authServices";
-import {useNavigate, NavLink} from "react-router-dom";
+import { loginUser } from "../../../services/authServices";
+import { useNavigate, NavLink } from "react-router-dom";
 import { notificationsContext } from "../../../contexts/NotificationsContext";
 import { authContext } from "../../../contexts/authContext";
 import { useNotifications } from "../../../hooks/useNotifications";
 import { ErrorNotification } from "../../Notifications/ErrorNotification/ErrorNotification";
-import {CheckInputErrors} from "../../../utils/CheckInputErrors";
+import { CheckInputErrors } from "../../../utils/CheckInputErrors";
+import { getCharacterData } from "../../../services/characterServices";
+import { useCharacterData } from "../../../hooks/useCharacterData";
 
 export function Login() {
   const [loginFormVals, setLoginFormVals] = useState({
@@ -14,14 +16,15 @@ export function Login() {
     password: "",
     errors: {
       email: [],
-      password: []
-    }
+      password: [],
+    },
   });
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { error } = useContext(notificationsContext);
   const { setNewError } = useNotifications();
-  const {setIsAuth} = useContext(authContext)
+  const { setIsAuth } = useContext(authContext);
+  const { charData, setCharData } = useCharacterData();
 
   const onValsChange = (e) =>
     setLoginFormVals((oldVals) => {
@@ -30,56 +33,66 @@ export function Login() {
         [e.target.name]: e.target.value,
       };
     });
-    const onInputFocus = (e) => {
-      e.preventDefault()
-      if(loginFormVals.errors[e.target.name] !== ''){
-        setLoginFormVals(currValue => {
-          return {
-            ...currValue,
-            errors : {
-              ...currValue.errors,
-              [e.target.name] : ''
-            }
-          }
-        })
-      }
+  const onInputFocus = (e) => {
+    e.preventDefault();
+    if (loginFormVals.errors[e.target.name] !== "") {
+      setLoginFormVals((currValue) => {
+        return {
+          ...currValue,
+          errors: {
+            ...currValue.errors,
+            [e.target.name]: "",
+          },
+        };
+      });
     }
+  };
 
   const setPasswordVisibility = () => {
-      setShowPassword((currStatus) => !currStatus);
-    };
+    setShowPassword((currStatus) => !currStatus);
+  };
 
   const onLogin = async (e) => {
-      e.preventDefault()
-      let {errors, ...inputs} = loginFormVals
-      let checkedErrors = CheckInputErrors(inputs, 'login')
-      if (Object.values(checkedErrors).some(errArr => errArr.length > 0)){
-        setLoginFormVals(oldVals => {
-          return {
-            ...oldVals,
-            errors: {
-              ...checkedErrors
-            }
+    e.preventDefault();
+    let { errors, ...inputs } = loginFormVals;
+    let checkedErrors = CheckInputErrors(inputs, "login");
+    if (Object.values(checkedErrors).some((errArr) => errArr.length > 0)) {
+      setLoginFormVals((oldVals) => {
+        return {
+          ...oldVals,
+          errors: {
+            ...checkedErrors,
+          },
+        };
+      });
+      return;
+    }
+    try {
+      let resp = await loginUser(loginFormVals);
+      let data = await resp.json();
+      if (!resp.ok) {
+        return setNewError(data.message);
+      }
+      setIsAuth(true);
+      if (!data.hasCreatedCharacter) {
+        navigate("/create-character");
+      } else {
+        try {
+          let respChar = await getCharacterData();
+          let dataChar = await respChar.json();
+          if (!respChar.ok) {
+            throw dataChar;
           }
-        })
-        return
-      }
-      try {
-       let resp = await loginUser(loginFormVals)
-       let data = await resp.json()
-       if(!resp.ok){
-        return setNewError(data.message)
-       }
-        setIsAuth(true)
-        if(!data.hasCreatedCharacter){
-          navigate('/create-character')
-        }else{
-
+          setCharData(dataChar);
+          navigate("/main");
+        } catch (err) {
+          throw err;
         }
-      }catch(err){
-        setNewError(err.message)
       }
-    } 
+    } catch (err) {
+      setNewError(err.message);
+    }
+  };
 
   return (
     <>
@@ -105,10 +118,12 @@ export function Login() {
               >
                 Email
               </label>
-              {loginFormVals.errors.email.length > 0 && loginFormVals.errors.email.map(
-                error => <span className={styles['error-span-login']} id='login-email'>{error}</span>
-                )
-              }
+              {loginFormVals.errors.email.length > 0 &&
+                loginFormVals.errors.email.map((error) => (
+                  <span className={styles["error-span-login"]} id="login-email">
+                    {error}
+                  </span>
+                ))}
             </fieldset>
             <fieldset className={styles["login-fieldset"]}>
               {showPassword ? (
@@ -157,15 +172,22 @@ export function Login() {
               >
                 Password
               </label>
-              {loginFormVals.errors.password.length > 0 && loginFormVals.errors.password.map(
-                error => <span className={styles['error-span-login']} id='login-password'>{error}</span>
-                )
-              }
+              {loginFormVals.errors.password.length > 0 &&
+                loginFormVals.errors.password.map((error) => (
+                  <span
+                    className={styles["error-span-login"]}
+                    id="login-password"
+                  >
+                    {error}
+                  </span>
+                ))}
             </fieldset>
             <button className={styles["login-btn"]}>Enter</button>
-            <span className={styles['redirect-span']}>
-              Don't have an account already? 
-              <NavLink to="/register" className={styles['redirect-link']}>Sign Up</NavLink>
+            <span className={styles["redirect-span"]}>
+              Don't have an account already?
+              <NavLink to="/register" className={styles["redirect-link"]}>
+                Sign Up
+              </NavLink>
             </span>
           </form>
         </div>

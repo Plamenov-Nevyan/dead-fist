@@ -18,6 +18,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             img {
                 max-width: 100%;
             }
@@ -129,6 +130,9 @@
                 justify-content: center;
                 height: 100%;
                 width: 100%;
+                .draggable {
+                    position: relative;
+                }
                 .slide {
                     display: flex;
                     justify-content: center;

@@ -124,4 +124,5 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   flex: 0 1 65%;
+  position: relative;
 }/*# sourceMappingURL=main.module.css.map */

@@ -1,15 +1,15 @@
-const Joi = require('joi')
+const Joi = require("joi");
 
-function authValidator(schema){
-    return (req, res, next) => {
-        const {error} = schema.validate(req.body)
-        if(error){
-            return res.status(400).json({
-                error: error.details.map((detail) => detail.message)
-            })
-        }
-        next()
+function authValidator(schema) {
+  return (req, res, next) => {
+    const { error } = schema.validate(req.body);
+    if (error) {
+      return res.status(400).json({
+        error: error.details.map((detail) => detail.message),
+      });
     }
+    next();
+  };
 }
 
-module.exports = authValidator
+module.exports = authValidator;

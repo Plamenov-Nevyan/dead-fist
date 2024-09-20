@@ -26,6 +26,7 @@ const [isFading, setIsFading] = useState(false)
 const [showFinalMessage, setShowFinalMessage] = useState(false)
 const {error} = useContext(notificationsContext)
 const {setNewError} = useNotifications
+const navigate = useNavigate()
 
 useEffect(() => {
     const fadeOutTime = 2000
@@ -35,6 +36,9 @@ useEffect(() => {
                 if(imageIndex === images.length - 1){
                     setShowFinalMessage(true)
                     setImageIndex(currIndex => currIndex + 1)
+                    let finalMessageTimer = setTimeout(() => {
+                        navigate('/main')
+                    },15000)
                 }else if(imageIndex === images.length){
                     clearTimeout(timer);
                     clearTimeout(fadeOutTimer);    
